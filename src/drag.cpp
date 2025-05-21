@@ -227,7 +227,8 @@ pair<CAR, CAR> select_car(const vector<CAR>& cars){
 	 string name1,name2;
 	
 	 cin.ignore();
-
+	 
+	 while (true){
 	 name1=get_valid_input("Select first one (enter the name): ");
 		
 	 auto thisOne = find_if(cars.begin(), cars.end(), [&name1](const CAR& car) {
@@ -241,12 +242,13 @@ pair<CAR, CAR> select_car(const vector<CAR>& cars){
 		 return car.name == name2;
 	    });
 	
-	 if (thisOne == cars.end() || anotherOne == cars.end()) {
-         cout << "One or both cars not found!\n";
-         return {CAR(), CAR()}; // boş araba döner, hataya karşı
+	  if (thisOne != cars.end() && anotherOne != cars.end()) {
+         
+		 return {*thisOne, *anotherOne};
         }
+		
+		cout << "One or both cars not found. Try again\n";
 	
-	  return {*thisOne, *anotherOne};
 	}
 
 void log_result(const string& winner){
