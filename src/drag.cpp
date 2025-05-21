@@ -57,9 +57,10 @@ void start_game(vector<CAR>& cars){
 			else cout << " ";
 		}
 		cout << '\n';
-
-		for (int j = 0; j < trackLength; ++j) cout << '-';
-			cout << '\n';
+		
+		
+		cout << "      ----------------------------------------\n";
+		
 
 		for (int j = 0; j < trackLength; ++j) {
 			if (j == static_cast<int>(progress2)) cout << "-*-";
